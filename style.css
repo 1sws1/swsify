@@ -168,7 +168,7 @@ h1{
     position: fixed;
     bottom: 10px;
     background-color: rgba(196, 195, 197, 1);
-    width: 70vw;
+    width: 69vw;
     padding: 10px;
     filter: invert(1);
     border-radius: 15px;
@@ -364,5 +364,9 @@ h1{
  .seekbar{
     background-color: black;
  }
+  .chudling{
+        display: flex;
+        justify-content: center;
+    }
 
 }
