@@ -313,6 +313,7 @@ h1{
  .seekbar{
     width: calc(100vw - 70px);
     margin-bottom: 70px;
+    margin-left: 0.5vw;
  }
  .abovebar{
     margin-bottom: 20px;
