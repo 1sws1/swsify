@@ -246,6 +246,7 @@ h1{
     margin-bottom: 5px;
 
 }
+
 .timevol{
     display: flex;
     justify-content: center;
@@ -360,4 +361,11 @@ h1{
         justify-content: center;
     }
 
+}
+@media (min-width: 1201px) {
+    .playbar {
+        left: calc(25vw + 20px);
+        right: 10px;
+        width: auto;
+    }
 }
