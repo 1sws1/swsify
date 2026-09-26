@@ -3,10 +3,11 @@ let currentsong = new Audio()
 let songs
 let currentfolder
 const play = document.querySelector(".playbutton");
+
 async function getsongs(folder) {
     currentfolder = folder
     let a = await fetch(`/songs/${folder}/songs.json`)
-    songs = await a.json()   // array of filenames, e.g. ["Song1.mp3","Song2.mp3"]
+    songs = await a.json()
 
     let songUL = document.querySelector(".songlist").getElementsByTagName("ul")[0]
     songUL.innerHTML = ""
@@ -15,6 +16,7 @@ async function getsongs(folder) {
         songUL.innerHTML = songUL.innerHTML + `<li><img src="pics/music-02-stroke-rounded.png" alt="" class="invert music" height="30">
                     <div class="info">
                         <div>${cleaned}</div>
+                        
                     </div>
                     <div class="playnow pointer">
                     play now
@@ -22,14 +24,12 @@ async function getsongs(folder) {
                     </div>
                     </li>`
     }
-
-    Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach((e, i) => {
-        e.addEventListener("click", () => {
-            playmusic(songs[i])
+    Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach(e => {
+        e.addEventListener("click", element => {
+            console.log(e.querySelector(".info").firstElementChild.innerHTML)
+            playmusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
         })
     })
-
-    return songs
 }
 
 const playmusic = (track, pause=false) => {
