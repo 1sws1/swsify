@@ -1,0 +1,59 @@
+.flex{
+    display: flex;
+}
+
+.justify{
+    justify-content: center;
+}
+
+.align{
+    align-items: center;
+}
+.border{
+    border: 2px solid red;
+    margin: 3px;
+}
+.rounded{
+    border-radius: 7px;
+}
+.m-1{
+    margin: 8px;
+}
+.p-1{
+    padding: 15px;
+}
+.invert{
+    filter: invert(1);
+}
+/* Dark vertical scrollbar with no arrows */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #303030 #101010;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+*::-webkit-scrollbar-track {
+  background: #101010;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #303030;
+  border: 2px solid #101010;
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+.pointer{
+  cursor: pointer;
+}
