@@ -169,7 +169,7 @@ h1{
     bottom: 10px;
     background-color: rgba(196, 195, 197, 1);
     width: 70vw;
-    padding: 6px;
+    padding: 10px;
     filter: invert(1);
     border-radius: 15px;
     min-height: 50px;
@@ -274,7 +274,7 @@ h1{
 }
 
 
-@media(max-width: 1400px) {
+@media(max-width: 1200px) {
     .left{
         position: absolute;
         left: -110%;
