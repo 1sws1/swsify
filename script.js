@@ -6,7 +6,7 @@ const play = document.querySelector(".playbutton");
 
 async function getsongs(folder) {
      currentfolder= folder
-    let a = await fetch(`/${folder}/`)
+    let a = await fetch(`/${folder}/songs.json`)
     let response = await a.text()
     console.log(response)
     let div = document.createElement("div")
