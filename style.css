@@ -253,6 +253,7 @@ h1{
 .songinfo{
     width: 400px;
     height: 30px;
+    margin-bottom: 5px;
 
 }
 .timevol{
