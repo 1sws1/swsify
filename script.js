@@ -3,32 +3,18 @@ let currentsong = new Audio()
 let songs
 let currentfolder
 const play = document.querySelector(".playbutton");
-
 async function getsongs(folder) {
-     currentfolder= folder
+    currentfolder = folder
     let a = await fetch(`/songs/${folder}/songs.json`)
-    let response = await a.text()
-    console.log(response)
-    let div = document.createElement("div")
-    div.innerHTML = response
-    let as = div.getElementsByTagName("a")
-     songs = []
-    for (let index = 0; index < as.length; index++) {
-        const element = as[index];
+    songs = await a.json()   // array of filenames, e.g. ["Song1.mp3","Song2.mp3"]
 
-        if (element.href.endsWith(".mp3")) {
-            songs.push(element.href.split(`${folder}`)[1])
-            
-        }
-    }
     let songUL = document.querySelector(".songlist").getElementsByTagName("ul")[0]
     songUL.innerHTML = ""
     for (const song of songs) {
-        let cleaned = song.replaceAll("%20"," ").replaceAll("%5C"," ")
+        let cleaned = song.replaceAll("%20", " ").replaceAll("%5C", " ")
         songUL.innerHTML = songUL.innerHTML + `<li><img src="pics/music-02-stroke-rounded.png" alt="" class="invert music" height="30">
                     <div class="info">
                         <div>${cleaned}</div>
-                        
                     </div>
                     <div class="playnow pointer">
                     play now
@@ -36,15 +22,14 @@ async function getsongs(folder) {
                     </div>
                     </li>`
     }
-    Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach(e => {
-        e.addEventListener("click", element => {
-            console.log(e.querySelector(".info").firstElementChild.innerHTML)
-            playmusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
+
+    Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach((e, i) => {
+        e.addEventListener("click", () => {
+            playmusic(songs[i])
         })
     })
- 
 
-  
+    return songs
 }
 
 const playmusic = (track, pause=false) => {
