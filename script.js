@@ -1,7 +1,7 @@
-
 let currentsong = new Audio()
 let songs
 let currentfolder
+let currentIndex = 0
 const play = document.querySelector(".playbutton");
 
 async function getsongs(folder) {
@@ -24,8 +24,9 @@ async function getsongs(folder) {
                     </div>
                     </li>`
     }
-    Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach(e => {
+    Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach((e, index) => {
         e.addEventListener("click", element => {
+            currentIndex = index
             console.log(e.querySelector(".info").firstElementChild.innerHTML)
             playmusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
         })
@@ -86,7 +87,6 @@ async function main() {
    
    const next = document.querySelector(".next")
      
-   let currentIndex = 0;
     play.addEventListener("click", ()=>{
     if (currentsong.paused) {
         currentsong.play()
@@ -117,7 +117,8 @@ document.querySelector(".vol").getElementsByTagName("input")[0].addEventListener
 
    Array.from(document.getElementsByClassName("card")).forEach(e=>{
     e.addEventListener("click", async item=>{
-        songs = await getsongs(`${item.currentTarget.dataset.folder}`)
+        await getsongs(`${item.currentTarget.dataset.folder}`)
+        currentIndex = 0
     })
    })
 
