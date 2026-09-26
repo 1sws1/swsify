@@ -6,7 +6,7 @@ const play = document.querySelector(".playbutton");
 
 async function getsongs(folder) {
      currentfolder= folder
-    let a = await fetch(`http://127.0.0.1:3000/songs/${folder}/`)
+    let a = await fetch(`/songs/${folder}/`)
     let response = await a.text()
     console.log(response)
     let div = document.createElement("div")
