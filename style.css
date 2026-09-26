@@ -361,5 +361,8 @@ h1{
  .cardcon{
     margin-bottom: 220px;
  }
+ .seekbar{
+    background-color: black;
+ }
 
 }
